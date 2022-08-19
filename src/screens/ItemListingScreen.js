@@ -1,17 +1,19 @@
 import React from 'react'
-import { View, Text, Image, StyleSheet } from 'react-native'
+import { View, Text, Image, StyleSheet, TouchableOpacity } from 'react-native'
 import SafeAreaComp from '../components/SafeAreaComp';
 import ListingComp from '../components/ListingComp';
 
-function ItemListingScreen() {
+function ItemListingScreen({navigation}) {
   return (
     <SafeAreaComp>
         <View style={{padding: 15}}>
             <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
-                <View style={{flexDirection: 'row', alignItems: 'center'}}>
-                    <Image style={{width: 20, height: 20}} source={require('../assets/ic_go_back.png')} />
-                    <Text style={{fontSize: 15, color: '#2874A6'}}>Back</Text>
-                </View>
+                <TouchableOpacity onPress={()=>navigation.goBack()}>
+                    <View style={{flexDirection: 'row', alignItems: 'center'}}>
+                        <Image style={{width: 20, height: 20}} source={require('../assets/ic_go_back.png')} />
+                        <Text style={{fontSize: 15, color: '#2874A6'}}>Back</Text>
+                    </View>
+                </TouchableOpacity>
                 <Image style={{width: 20, height: 20}} source={require('../assets/ic_more.png')} />
             </View>
             <View style={styles.containerbuy}>
